@@ -11,12 +11,12 @@ const app = express();
 // (* 때에 따라 다른 포트번호를 열고 싶다면, 환경 변수를 활용 하기도 합니다.)
 const port = 3001;
 
-const flightRouter = require('./router/flightRouter');
-const bookRouter = require('./router/bookRouter');
+const flightRouter = require('./router/flightRouter'); // 비행정보 라우터(분기) 해주는 미들웨어
+const bookRouter = require('./router/bookRouter'); // 예약정보 라우터(분기) 해주는 미들웨어
 const airportRouter = require('./router/airportRouter');
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json()); //bodyParser대신 express.json 사용함.(문자열로 변환)
 
 app.use('/flight', flightRouter);
 app.use('/book', bookRouter);

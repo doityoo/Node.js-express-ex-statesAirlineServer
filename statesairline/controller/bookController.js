@@ -1,5 +1,6 @@
 // POST /book에서 사용할 uuid입니다.
 const { v4: uuid } = require('uuid');
+const app = require('../app');
 // 항공편 예약 데이터를 저장합니다.
 let booking = [];
 
@@ -13,7 +14,6 @@ module.exports = {
   // 요청 된 phone과 동일한 phone 예약 데이터를 조회합니다.
   findByPhone: (req, res) => {
     const {phone} = req.params;
-
   },
   // [GET] /book/:phone/:flight_uuid 요청을 수행합니다.
   // 요청 된 id, phone과 동일한 uuid, phone 예약 데이터를 조회합니다.
